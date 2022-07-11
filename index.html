@@ -6,7 +6,14 @@
 <script src="./js/quagga.min.js"></script>
 </head>
 <body>
-<div clas=""><input type="tel" id="barcode-input" maxlength="13" /><button onClick="toggleScan()">スキャン開始/停止</button></div>
+<div clas="">
+    <input type="test" id="barcode-input" maxlength="13" />
+    <button onClick="toggleScan()">スキャン開始/停止</button>
+    <button onclick="search()">検索</button>
+    <div>
+        <img id="image_file" src="">
+    </div>
+</div>
 <div id="barcode-wrapper" style="visibility: hidden; border: 2px solid #099;">
 <canvas id="barcode-view"></canvas>
 <p id="message">カメラ初期化中です</p>
@@ -307,6 +314,13 @@ scanEnd();
 } else {
 scanStart();
 }
+}
+
+function search() {
+    let element = document.getElementById('barcode-input')
+    console.log(element.value);
+    var img = document.getElementById('image_file');
+    img.src = "img/" + element.value + ".png";
 }
 
 function scanStart() {
