@@ -1,0 +1,17 @@
+{
+  "name": "tastylog",
+  "version": "1.0.0",
+  "description": "```\r npm init\r ```",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "FumiyaKidachi",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "7.25.0"
+  },
+  "dependencies": {
+    "express": "4.17.1"
+  }
+}
