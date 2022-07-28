@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>音楽再生</title>
+    <style>
+        .border-radius {
+            width: 300px;
+            height: 100px;
+            line-height: 100px;
+            background-color: green;
+            border-radius: 100px;
+            color: #fff;
+            text-align: center;
+            margin: 20% auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="border-radius">
+            <!-- 再生ボタン -->
+            <button id="play">再生</button>
+            <!-- 停止ボタン -->
+            <button id="stop">停止</button>
+            <label>
+                <input type="checkbox" id="loop">ループ
+            </label>
+            <select id="time" multiple size="1">
+                <option value="5000">5秒</option>
+                <option value="10000">10秒</option>
+                <option value="15000">15秒</option>
+                <option value="20000">20秒</option>
+                <option value="30000">30秒</option>
+                </select>
+        </div>
+        <div>
+        </div>
+  </div>
+<script>
+    'use strict';
+
+    // 要素
+    const music = new Audio('./musics/music.mp3');
+    const play  = document.getElementById('play');
+    const stop  = document.getElementById('stop');
+    let loop    = document.getElementById('loop');
+    var time    = document.getElementById('time');
+    time.options[4].selected = true;
+    console.log(time.value)
+
+    play.addEventListener('click', function(){
+        if(loop.checked){
+            music.play();
+            music.loop = true;
+            console.log(loop.checked);
+            await setTimeout(100000000000000000);
+            console.log(time.value);
+        } else {
+            music.play();
+            music.loop = false;
+            console.log(loop.checked)
+        }
+    });
+    //停止ボタン
+    stop.addEventListener('click', function(){
+        music.pause();
+    });
+
+  </script>
+</body>
+</html>
