@@ -28,7 +28,7 @@
 <body>
     <div class="container">
         <div class="border-radius">
-            <button id="player" class="player text">再生</button>
+            <button id="player" class="player text">▶</button>
             <label>
                 <input type="checkbox" id="loop" class="text"><i class="text">ループ</i>
             </label>
@@ -52,8 +52,8 @@
         const interval = document.getElementById('interval');
         const intervaltime = interval.value * 1000;
         console.log(intervaltime);
-        if (player.innerHTML === '再生'){
-            player.innerHTML = "停止";
+        if (player.innerHTML === '▶'){
+            player.innerHTML = "⏸";
             if(loop.checked){
                 music.play();
                 setInterval(function(){
@@ -61,17 +61,21 @@
                     console.log(loop.checked);
                 },intervaltime)
             } else {
-                player.innerHTML = "再生";
                 music.play();
                 music.loop = false;
                 console.log(loop.checked);
             }
-        } else if(player.innerHTML === '停止'){
-            player.innerHTML = "再生";
+        } else if(player.innerHTML === '⏸'){
             music.pause();
+            player.innerHTML = "▶";
             location.reload();
         }
     });
+
+    music.addEventListener("ended", ()=>{
+        music.currentTime = 0;
+        player.innerHTML = "▶";
+    })
   </script>
 </body>
 </html>
