@@ -4,67 +4,74 @@
     <meta charset="UTF-8">
     <title>音楽再生</title>
     <style>
+        body{
+            background-color: #effffd;
+        }
         .border-radius {
-            width: 300px;
-            height: 100px;
+            width: 50%;
+            height: 50%;
             line-height: 100px;
-            background-color: green;
+            background-color: #6c9bd2;
             border-radius: 30px;
-            color: #fff;
+            color: #4c4c4c;
             text-align: center;
             margin: 20% auto;
+        }
+        .player{
+            width: 20%;
+        }
+        .text{
+            font-size: 150%;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="border-radius">
-            <!-- 再生ボタン -->
-            <button id="play">再生</button>
-            <!-- 停止ボタン -->
-            <button id="stop">停止</button>
+            <button id="player" class="player text">再生</button>
             <label>
-                <input type="checkbox" id="loop">ループ
+                <input type="checkbox" id="loop" class="text"><i class="text">ループ</i>
             </label>
-            <select name="interval" id="interval">
-                <option>5</option>
-                <option>10</option>
-                <option>20</option>
-                <option>30</option>
-            </select>
+                <select name="interval" id="interval" class="text">
+                    <option>5</option>
+                    <option>10</option>
+                    <option>20</option>
+                    <option>30</option>
+                    <option>60</option>
+                </select><i class="text">秒</i>
         </div>
         <div>
         </div>
   </div>
 <script>
+    const music  = new Audio('./musics/music.mp3');
+    const player = document.getElementById('player');
+    let loop     = document.getElementById('loop');
 
-    // 要素
-    const music = new Audio('./musics/music.mp3');
-    const play  = document.getElementById('play');
-    const stop  = document.getElementById('stop');
-    let loop    = document.getElementById('loop');
-
-    play.addEventListener('click', function(){
+    player.addEventListener('click', function(){
         const interval = document.getElementById('interval');
         const intervaltime = interval.value * 1000;
         console.log(intervaltime);
-        if(loop.checked){
-            setInterval(function(){
+        if (player.innerHTML === '再生'){
+            player.innerHTML = "停止";
+            if(loop.checked){
                 music.play();
+                setInterval(function(){
+                    music.play();
+                    console.log(loop.checked);
+                },intervaltime)
+            } else {
+                player.innerHTML = "再生";
+                music.play();
+                music.loop = false;
                 console.log(loop.checked);
-            },intervaltime)
-        } else {
-            music.play();
-            music.loop = false;
-            console.log(loop.checked);
+            }
+        } else if(player.innerHTML === '停止'){
+            player.innerHTML = "再生";
+            music.pause();
+            location.reload();
         }
     });
-    //停止ボタン
-    stop.addEventListener('click', function(){
-        music.pause();
-        location.reload();
-    });
-
   </script>
 </body>
 </html>
