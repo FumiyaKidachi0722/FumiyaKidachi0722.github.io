@@ -44,13 +44,13 @@
         </div>
   </div>
 <script>
-    const music  = new Audio('./musics/music.mp4');
+    var music  = new Audio('./musics/music.mp4');
     const player = document.getElementById('player');
     let loop     = document.getElementById('loop');
 
     player.addEventListener('click', function(){
         const interval = document.getElementById('interval');
-        const intervaltime = interval.value * 1000;
+        const intervaltime = (interval.value * 1000) + (music.duration * 1000);
         console.log(intervaltime);
         if (player.innerHTML === '▶'){
             player.innerHTML = "⏸";
@@ -58,24 +58,20 @@
                 music.play();
                 setInterval(function(){
                     music.play();
-                    console.log(loop.checked);
                 },intervaltime)
-            } else {
+            } else if(!loop.checked){
                 music.play();
-                music.loop = false;
-                console.log(loop.checked);
+                music.addEventListener("ended", ()=>{
+                    music.currentTime = 0;
+                    player.innerHTML = "▶";
+                })
             }
-        } else if(player.innerHTML === '⏸'){
+        } else if(player.innerHTML === '⏸' && loop.checked){
             music.pause();
             player.innerHTML = "▶";
             location.reload();
         }
     });
-
-    music.addEventListener("ended", ()=>{
-        music.currentTime = 0;
-        player.innerHTML = "▶";
-    })
   </script>
 </body>
 </html>
