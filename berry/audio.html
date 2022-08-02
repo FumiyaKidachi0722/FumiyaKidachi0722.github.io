@@ -12,6 +12,7 @@
             border-radius: 30px;
             color: #fff;
             text-align: center;
+            margin: 20% auto;
         }
     </style>
 </head>
@@ -25,12 +26,17 @@
             <label>
                 <input type="checkbox" id="loop">ループ
             </label>
+            <select name="interval" id="interval">
+                <option>5</option>
+                <option>10</option>
+                <option>20</option>
+                <option>30</option>
+            </select>
         </div>
         <div>
         </div>
   </div>
 <script>
-    'use strict';
 
     // 要素
     const music = new Audio('./musics/music.mp3');
@@ -39,19 +45,24 @@
     let loop    = document.getElementById('loop');
 
     play.addEventListener('click', function(){
+        const interval = document.getElementById('interval');
+        const intervaltime = interval.value * 1000;
+        console.log(intervaltime);
         if(loop.checked){
-            music.play();
-            music.loop = true;
-            console.log(loop.checked)
+            setInterval(function(){
+                music.play();
+                console.log(loop.checked);
+            },intervaltime)
         } else {
             music.play();
             music.loop = false;
-            console.log(loop.checked)
+            console.log(loop.checked);
         }
     });
     //停止ボタン
     stop.addEventListener('click', function(){
         music.pause();
+        location.reload();
     });
 
   </script>
