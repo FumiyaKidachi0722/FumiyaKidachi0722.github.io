@@ -47,7 +47,7 @@
         </div>
   </div>
 <script>
-    var music  = new Audio('./musics/music.mp4');
+    var music    = new Audio('./musics/music.mp4');
     const player = document.getElementById('player');
     let loop     = document.getElementById('loop');
 
@@ -69,7 +69,7 @@
                     player.innerHTML = "▶";
                 })
             }
-        } else if(player.innerHTML === '⏸' && loop.checked){
+        } else {
             location.reload();
         }
     });
