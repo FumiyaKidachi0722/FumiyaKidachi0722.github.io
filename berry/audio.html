@@ -69,7 +69,9 @@
                     player.innerHTML = "▶";
                 })
             }
-        } else {
+        } else if (player.innerHTML === '⏸' && loop.checked){
+            location.reload();
+        } else if (player.innerHTML === '⏸' && !loop.checked){
             music.pause();
             player.innerHTML = "▶";
         }
