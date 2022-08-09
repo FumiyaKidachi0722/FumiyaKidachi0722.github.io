@@ -33,12 +33,16 @@
                 <input type="checkbox" id="loop" class="text"><i class="text">ループ</i>
             </label>
                 <select name="interval" id="interval" class="text">
+                    <option>0.5</option>
+                    <option>1</option>
+                    <option>3</option>
                     <option>5</option>
+                    <option>8</option>
                     <option>10</option>
                     <option>20</option>
                     <option>30</option>
-                    <option>60</option>
-                </select><i class="text">秒</i>
+                    <option>8</option>
+                </select><i class="text">分</i>
         </div>
         <div>
         </div>
@@ -50,7 +54,7 @@
 
     player.addEventListener('click', function(){
         const interval = document.getElementById('interval');
-        const intervaltime = (interval.value * 1000) + (music.duration * 1000);
+        const intervaltime = (interval.value * 1000) + (music.duration * 60000);
         console.log(intervaltime);
         if (player.innerHTML === '▶'){
             player.innerHTML = "⏸";
