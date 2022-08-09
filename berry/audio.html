@@ -53,7 +53,7 @@
 
     player.addEventListener('click', function(){
         const interval = document.getElementById('interval');
-        const intervaltime = (interval.value * 1000) + (music.duration * 60000);
+        const intervaltime = (interval.value * 60000) + (music.duration * 1000);
         console.log(intervaltime);
         if (player.innerHTML === '▶'){
             player.innerHTML = "⏸";
