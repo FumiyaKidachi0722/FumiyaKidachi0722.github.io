@@ -1,41 +1,47 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ResponsiveWebDesign</title>
-    <meta name="description" content="レスポンシブデザインのWebサイト">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <!-- <div class="drawer">
-    <!- ハンバーガーメニュー部分 --
-                <div class="Toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ResponsiveWebDesign</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <header class="header">
+                <div class="header__inner">
+                    <h1 class="header__title header-title">
+                        <a href="#">
+                            <img src="images/logo.png" alt="ロゴ画像">
+                        </a>
+                    </h1>
+                    <nav class="header__nav nav" id="js-nav">
+                        <ul class="nav__items nav-items">
+                          <li class="nav-items__item"><a href="">メニュー1</a></li>
+                          <li class="nav-items__item"><a href="">メニュー2</a></li>
+                          <li class="nav-items__item"><a href="">メニュー3</a></li>
+                          <li class="nav-items__item"><a href="">メニュー4</a></li>
+                        </ul>
+                    </nav>
+                    <button class="header__hamburger hamburger active" id="js-hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                 </div>
-            </div> -->
-            <div id="header-logo">
-                <a href="index.html"><img src="image/logo.png" alt="logo"></a>
-            </div>
-            <div class="menu">
-                <ul>
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#">サービス紹介</a></li>
-                    <li><a href="#">最新情報</a></li>
-                    <li><a href="#">お問い合わせ</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <div class="main">
-        <h1>メイン</h1>
-    </div>
-    <footer>
-        <p>フッター</p>
-    </footer>
-</body>
+            </header>
+            <main>
+                <div class="main">
+                    メインコンテンツエリア
+                </div>
+            </main>
+            <footer class="footer">
+                <div>
+                    フッターエリア
+                </div>
+            </footer>
+        </div>
+    </body>
+    <script type="text/javascript" src="scripts/main.js"></script>
 </html>
