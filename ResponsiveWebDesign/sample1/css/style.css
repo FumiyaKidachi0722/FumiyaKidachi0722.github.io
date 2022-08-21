@@ -1,0 +1,62 @@
+/* mobile
+@media screen and (max-width: 600px)
+*/
+body {
+    background-color: aquamarine;
+}
+header {
+    background-color: #ddd;
+}
+footer {
+    background-color: brown;
+}
+.main {
+    background-color: blueviolet;
+}
+
+/* notePC */
+@media screen and (min-width: 960px) {
+    header {
+        height: 100px;
+    }
+    footer {
+        background-color: brown;
+    }
+    .main {
+    }
+    .menu li {
+        list-style: none;
+        float: left;
+        padding: 20px 15px;
+        text-align: center;
+        background-color: dimgray;
+        box-sizing: border-box;
+        width: 20%;
+    }
+    #header-logo img {
+        width: 100px;
+        float: left;
+    }
+    ul {
+        display: flex;
+        padding-top: 15px;
+    }
+    li {
+        list-style: none;
+    }
+}
+/* tablet */
+/* @media screen and (min-width: 600px) {
+    h1{
+        color: black;
+    }
+} */
+
+/* desktop */
+/* @media screen and (min-width: 1280px) {
+    h1{
+        color: red;
+    }
+} */
+
+

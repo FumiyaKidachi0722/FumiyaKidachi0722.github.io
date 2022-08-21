@@ -30,10 +30,10 @@
         <div class="border-radius">
             <button id="player" class="player text">▶</button>
             <label>
-                <input type="checkbox" id="loop" class="text"><i class="text">ループ</i>
+                <input type="checkbox" id="loop" class="text" checked><i class="text">ループ</i>
             </label>
                 <select name="interval" id="interval" class="text">
-                    <option>0.5</option>
+                    <option>0.01</option>
                     <option>1</option>
                     <option>3</option>
                     <option>5</option>
@@ -65,15 +65,17 @@
             } else if(!loop.checked){
                 music.play();
                 music.addEventListener("ended", ()=>{
-                    music.currentTime = 0;
                     player.innerHTML = "▶";
                 })
             }
-        } else if (player.innerHTML === '⏸' && loop.checked){
-            location.reload();
-        } else if (player.innerHTML === '⏸' && !loop.checked){
-            music.pause();
-            player.innerHTML = "▶";
+        } else if (player.innerHTML === '⏸'){
+            if (loop.checked){
+                location.reload();
+            } else if (!loop.checked){
+                music.pause();
+                music.currentTime = 0;
+                player.innerHTML = "▶";
+            }
         }
     });
   </script>

@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>hum_menu_blg</title>
+	<style>
+	body {
+		margin: 0;
+	}
+	.content_body {
+		width: 300px;
+		height: 500px;
+		background: lightgrey;
+		position: relative;
+	}
+	.content_body header {
+		position: relative;
+		background-color: black;
+		color: white;
+		z-index: 1;
+		height: 80px;
+	}
+	.header_container {
+		width: 100%;
+		height: 100%;
+		position: relative;
+	}
+	.header_container h1 {
+		font-size: 1rem;
+		width: fit-content;
+		position: absolute;
+		top: calc( 50% - .8rem);
+		left: 0;
+		right: 0;
+		margin: auto;
+	}
+	.content_body section {
+		height: 420px;
+		display: grid;
+		justify-content: center;
+		align-content: center;
+	}
+	.sample_sp_menu {
+		background-color: rgba(0,0,0,.5);
+		position: absolute;
+		top: 0;
+		left: -300px;
+		width: 100%;
+		height: 100%;
+		display: grid;
+		justify-content: center;
+		align-content: center;
+		color: white;
+		text-align: center;
+		transition: .5s;
+	}
+		.sample_sp_menu.active {
+		left: 0px;
+	}
+	.sample_sp_menu ul {
+		padding-inline: 0;
+	}
+	.sample_sp_menu li {
+		list-style: none;
+		margin-top: 1.5rem;
+		cursor: pointer;
+	}
+		
+		.menu_bt_container {
+			width: 50px;
+			height: 50px;
+			position: relative;
+			top: calc( 50% - 25px);
+			left: 10px;
+			cursor: pointer;
+		}
+		.menu_bt_container img {
+			width: 100%;
+			filter: invert(1);
+			position: absolute;
+		}
+		.menu_close {
+			opacity: 1;
+		}
+		.menu_close.active {
+			opacity: 0;
+		}
+		.menu_open {
+			opacity: 0;
+		}
+		.menu_open.active {
+			opacity: 1;
+		}
+	</style>
+</head>
+
+<body>
+<div class="content_body">
+	<header>
+		<div class="header_container">
+			<div class="menu_bt_container">
+				<img src="img/ham-menu-image01.png" class="menu_close">
+				<img src="img/ham-menu-image02.png" class="menu_open">
+			</div>
+			<h1>サイトタイトル</h1>
+		</div>
+	</header>
+	<nav class="sample_sp_menu">
+		<ul>
+			<li>HOME</li>
+			<li>ABOUT</li>
+			<li>NEWS</li>
+			<li>CONTACT</li>
+		</ul>
+	</nav>
+	<section>
+		<div>
+			<p>ここにキャッチコピーが入ります。</p>
+		</div>
+	</section>
+</div>
+<script>
+{
+	const menuBtContainer = document.querySelector('.menu_bt_container');
+	const sampleSpMenu = document.querySelector('.sample_sp_menu');
+	const menuClose = document.querySelector('.menu_close');
+	const menuOpen = document.querySelector('.menu_open');
+	
+	menuBtContainer.addEventListener('click', () => {
+		sampleSpMenu.classList.toggle('active');
+		menuClose.classList.toggle('active');
+		menuOpen.classList.toggle('active');
+	});
+}
+</script>
+</body>

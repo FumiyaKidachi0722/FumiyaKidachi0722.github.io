@@ -14,3 +14,7 @@ express
 ```
 yarn add express@^4.17.1
 ```
+ejs
+```
+yarn add ejs@^3.1.6
+```

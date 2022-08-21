@@ -23,6 +23,13 @@ main {
 .footer div {
   margin: auto;
 }
+
+.main .footer {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 120px
+  /* box-sizing: border-box; */
+}
 /* ヘッダー */
 
 .header {
@@ -221,6 +228,33 @@ padding-bottom: 200px;
     display: none;
   }
 }
+
+/* バーナー */
+.fotter-banner {
+  width: 100%;
+  background-color: inherit;
+  color: red;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+}
+/* .footer-banner {
+  bottom: 0;
+  z-index: 99999;
+}
+.footer-banner .banner {
+  text-align: center;
+
+}
+.ul-banner {
+  display: flex;
+  position: static;
+  transform: initial;
+  background-color: inherit;
+  height: inherit;
+  justify-content: center;
+
+} */
 
 /* mobile Design
 @media screen and (max-width: 600px)
